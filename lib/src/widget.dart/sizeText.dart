@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 class TitleText extends StatelessWidget {
   final String text;
   final Color textColor;
+  final textAlign;
 
   TitleText({
     @required this.text,
-    this.textColor = Colors.black
+    this.textColor = Colors.black,
+    this.textAlign = TextAlign.start
   });
 
   @override
@@ -14,8 +16,9 @@ class TitleText extends StatelessWidget {
     double height = MediaQuery.of(context).size.height;
     return Text(
       text,
+      textAlign: this.textAlign,
       style: TextStyle(
-        fontSize: height * 0.03,
+        fontSize: height * 0.028,
         color: this.textColor
       )
     );
@@ -25,10 +28,12 @@ class TitleText extends StatelessWidget {
 class SubTitleText extends StatelessWidget {
   final String text;
   final Color textColor;
+  final textAlign;
 
   SubTitleText({
     @required this.text,
-    this.textColor = Colors.black
+    this.textColor = Colors.black,
+    this.textAlign = TextAlign.start
   });
 
   @override
@@ -36,8 +41,9 @@ class SubTitleText extends StatelessWidget {
     double height = MediaQuery.of(context).size.height;
     return Text(
       text,
+      textAlign: this.textAlign,
       style: TextStyle(
-        fontSize: height * 0.025,
+        fontSize: height * 0.021,
         color: this.textColor
       )
     );
@@ -47,10 +53,12 @@ class SubTitleText extends StatelessWidget {
 class ContentText extends StatelessWidget {
   final String text;
   final Color textColor;
+  final textAlign;
 
   ContentText({
     @required this.text,
-    this.textColor = Colors.black
+    this.textColor = Colors.black,
+    this.textAlign = TextAlign.start
   });
 
   @override
@@ -58,9 +66,9 @@ class ContentText extends StatelessWidget {
     double height = MediaQuery.of(context).size.height;
     return Text(
       text,
-      textAlign: TextAlign.center,
+      textAlign: this.textAlign,
       style: TextStyle(
-        fontSize: height * 0.02,
+        fontSize: height * 0.015,
         color: this.textColor
       )
     );

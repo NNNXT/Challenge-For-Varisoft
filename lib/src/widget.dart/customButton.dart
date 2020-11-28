@@ -3,9 +3,13 @@ import 'package:opentalk/src/widget.dart/sizeText.dart';
 
 class CustomButton extends StatelessWidget {
   final String text;
+  final onTap;
+  final bool showNavigateNextIcon;
 
   CustomButton({
-    @required this.text
+    @required this.text,
+    @required this.onTap,
+    this.showNavigateNextIcon = false
   });
 
   @override
@@ -14,12 +18,30 @@ class CustomButton extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: size.width * 0.05),
       child: InkWell(
-        onTap: (){},
+        onTap: onTap,
         child: Container(
           child: Center(
-            child: SubTitleText(
-              text: text,
-              textColor: Colors.white
+            child: Stack(
+              children: [
+                Align(
+                  alignment: Alignment.center,
+                  child: SubTitleText(
+                    text: text,
+                    textColor: Colors.white
+                  ),
+                ),
+              if (this.showNavigateNextIcon)
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: Padding(
+                    padding: EdgeInsets.only(right: size.width * 0.125),
+                    child: Icon(
+                      Icons.navigate_next,
+                      color: Colors.white
+                    ),
+                  ),
+                )
+              ],
             )
           ),
           height: size.height * 0.065,
