@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'screen/home.dart';
+import 'screen/welcomePage.dart';
 
 class OpenTalk extends StatelessWidget {
   const OpenTalk({Key key}) : super(key: key);
@@ -13,7 +13,7 @@ class OpenTalk extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Home(),
+      home: WelcomePage(),
     );
   }
 }

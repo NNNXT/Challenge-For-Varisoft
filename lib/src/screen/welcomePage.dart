@@ -3,7 +3,7 @@ import 'package:opentalk/src/screen/loginPage.dart';
 import 'package:opentalk/src/widget.dart/customButton.dart';
 import 'package:opentalk/src/widget.dart/sizeText.dart';
 
-class Home extends StatelessWidget {
+class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
