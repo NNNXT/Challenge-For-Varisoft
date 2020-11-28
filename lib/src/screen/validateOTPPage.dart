@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:opentalk/src/screen/landingPage.dart';
 import 'package:opentalk/src/widget.dart/customButton.dart';
 import 'package:opentalk/src/widget.dart/customCloseButton.dart';
 import 'package:opentalk/src/widget.dart/sizeText.dart';
@@ -146,7 +147,7 @@ class _ValidateOTPPageState extends State<ValidateOTPPage> {
                     onTap: (){
                       if (_formKey.currentState.validate()) {
                         _formKey.currentState.save();
-                        print(otp);
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => LandingPage()));
                       }
                     }
                   ),

@@ -29,11 +29,13 @@ class SubTitleText extends StatelessWidget {
   final String text;
   final Color textColor;
   final textAlign;
+  final double foneSize;
 
   SubTitleText({
     @required this.text,
     this.textColor = Colors.black,
-    this.textAlign = TextAlign.start
+    this.textAlign = TextAlign.start,
+    this.foneSize = 0.021
   });
 
   @override
@@ -41,9 +43,10 @@ class SubTitleText extends StatelessWidget {
     double height = MediaQuery.of(context).size.height;
     return Text(
       text,
+      overflow: TextOverflow.visible,
       textAlign: this.textAlign,
       style: TextStyle(
-        fontSize: height * 0.021,
+        fontSize: height * foneSize,
         color: this.textColor
       )
     );
@@ -54,11 +57,13 @@ class ContentText extends StatelessWidget {
   final String text;
   final Color textColor;
   final textAlign;
+  final double foneSize;
 
   ContentText({
     @required this.text,
     this.textColor = Colors.black,
-    this.textAlign = TextAlign.start
+    this.textAlign = TextAlign.start,
+    this.foneSize = 0.015
   });
 
   @override
@@ -68,7 +73,7 @@ class ContentText extends StatelessWidget {
       text,
       textAlign: this.textAlign,
       style: TextStyle(
-        fontSize: height * 0.015,
+        fontSize: height * foneSize,
         color: this.textColor
       )
     );

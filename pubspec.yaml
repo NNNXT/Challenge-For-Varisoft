@@ -22,5 +22,5 @@ flutter:
     - assets/background/
     - assets/icons/
     - assets/images/
-    - mockup/mockupImage/
-    - mockup/mockupLogo/
+    - lib/mockup/mockupImage/
+    - lib/mockup/mockupLogo/
