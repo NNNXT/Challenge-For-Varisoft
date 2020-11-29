@@ -3,11 +3,22 @@ import 'package:opentalk/mockup/mockupData/mockupData.dart';
 import 'package:opentalk/src/widget.dart/sizeText.dart';
 
 class ChatPage extends StatefulWidget {
+  ChatPage({
+    @required this.detailOpenTalk
+  });
+
+  final detailOpenTalk;
   @override
   _ChatPageState createState() => _ChatPageState();
 }
 
 class _ChatPageState extends State<ChatPage> {
+  var detailOpenTalk;
+  @override
+  void initState() {
+    detailOpenTalk = this.widget.detailOpenTalk;
+    super.initState();
+  }
   List historyChat = MockupData().historyChat;
   int countSenderBySomeone = 0;
   @override
@@ -16,7 +27,7 @@ class _ChatPageState extends State<ChatPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xFF1D1D1D),
-        title: Text('Disney (7641)'),
+        title: Text(detailOpenTalk['title'] + ' (' + detailOpenTalk['member'] + ')'),
         actions: [
           IconButton(
             icon: Icon(

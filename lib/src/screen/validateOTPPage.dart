@@ -147,7 +147,7 @@ class _ValidateOTPPageState extends State<ValidateOTPPage> {
                     onTap: (){
                       if (_formKey.currentState.validate()) {
                         _formKey.currentState.save();
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => LandingPage()));
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => LandingPage(0)));
                       }
                     }
                   ),

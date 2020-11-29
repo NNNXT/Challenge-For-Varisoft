@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:opentalk/mockup/mockupData/mockupData.dart';
 import 'package:opentalk/src/screen/chatPage.dart';
-import 'package:opentalk/src/screen/landingPage.dart';
-import 'package:opentalk/src/screen/profileOpenTalkPage.dart';
 import 'package:opentalk/src/widget.dart/sizeText.dart';
 
-class HomePage extends StatefulWidget {
+class ListChatPage extends StatefulWidget {
 
   @override
-  _HomePageState createState() => _HomePageState();
+  _ListChatPageState createState() => _ListChatPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _ListChatPageState extends State<ListChatPage> {
   List openTalkList = MockupData().openTalkList;
   @override
   Widget build(BuildContext context) {
@@ -55,39 +53,53 @@ class _HomePageState extends State<HomePage> {
                         )
                       ),
                     ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(vertical: size.height * 0.025),
-                      child: Image.asset('assets/images/banner.png'),
-                    )
                   ],
                 ),
               ),
               Flexible(
-                child: ListView.builder(
-                  itemCount: openTalkList.length,
-                  itemBuilder: (context, i) {
-                    return Padding(
-                      padding: EdgeInsets.only(bottom: size.height * 0.01),
-                      child: ListTile(
-                        leading: Image.asset(openTalkList[i]['logo']),
-                        title: Text(openTalkList[i]['title']),
-                        subtitle: Text(openTalkList[i]['subTitle'] + "\n" + openTalkList[i]['member'] + " members"),
-                        onTap: () async {
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => ProfileOpenTalkPage(
-                            detailOpenTalkPage: openTalkList[i],
-                          ))).then((value) {
-                            if (value == 'join') {
-                              Navigator.pop(context);
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => LandingPage(1)));
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => ChatPage(
-                                detailOpenTalk: openTalkList[i],
-                              )));
-                            }
-                          }) ;
-                        },
-                      ),
-                    );
-                  },
+                child: Padding(
+                  padding: EdgeInsets.only(top: size.height * 0.02),
+                  child: ListView.builder(
+                    itemCount: openTalkList.length,
+                    itemBuilder: (context, i) {
+                      return Padding(
+                        padding: EdgeInsets.only(bottom: size.height * 0.01),
+                        child: ListTile(
+                          leading: Image.asset(openTalkList[i]['logo']),
+                          title: Text(openTalkList[i]['title']),
+                          subtitle: Text(
+                            openTalkList[i]['lastMessage'],
+                            maxLines: 2
+                          ),
+                          trailing: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                openTalkList[i]['lastTimeMessage'],
+                                style: TextStyle(color: Colors.grey)
+                              ),
+                              Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(50),
+                                  color: openTalkList[i]['countMessage'] == "0" ? Colors.white : Color(0xFF2F80ED),
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsets.symmetric(horizontal: size.height * 0.0125),
+                                  child: Text(
+                                    openTalkList[i]['countMessage'],
+                                    style: TextStyle(color: Colors.white)
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          onTap: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => ChatPage(detailOpenTalk: openTalkList[i])));
+                          },
+                        ),
+                      );
+                    },
+                  ),
                 ),
               )
             ],
