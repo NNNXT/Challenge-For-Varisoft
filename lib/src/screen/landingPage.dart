@@ -24,7 +24,7 @@ class _LandingPageState extends State<LandingPage> {
     HomePage(),
     ListChatPage(),
     Text(
-      'Index 2: School',
+      'Setting Page',
       style: optionStyle,
     ),
   ];
@@ -42,24 +42,31 @@ class _LandingPageState extends State<LandingPage> {
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
+        items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.house),
+            activeIcon: imageIcon('assets/icons/homeActive.png'),
+            icon: imageIcon('assets/icons/homeInactive.png'),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.bubble_left_bubble_right_fill),
-            label: 'Business',
+            activeIcon: imageIcon('assets/icons/chatActive.png'),
+            icon: imageIcon('assets/icons/chatInactive.png'),
+            label: 'Chats',
           ),
           BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.settings),
-            label: 'School',
+            activeIcon: imageIcon('assets/icons/settingActive.png'),
+            icon: imageIcon('assets/icons/settingInactive.png'),
+            label: 'Settings',
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
+        selectedItemColor: Color(0xFF007AFF),
         onTap: _onItemTapped,
       ),
     );
+  }
+
+  Widget imageIcon(path) {
+    return Image.asset(path,width: MediaQuery.of(context).size.width * 0.06);
   }
 }

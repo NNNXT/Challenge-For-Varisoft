@@ -85,7 +85,8 @@ class _ValidateOTPPageState extends State<ValidateOTPPage> {
                                     text: 'รหัสยืนยันอยู่ในข้อความใน SMS ที่ส่งไปยังหมายเลขโทรศัพท์ ',
                                     style: TextStyle(
                                       color: Colors.grey,
-                                      fontSize: size.height * 0.020
+                                      fontSize: size.height * 0.020,
+                                      fontFamily: 'Kanit'
                                     )
                                   ),
                                   TextSpan(
@@ -93,7 +94,8 @@ class _ValidateOTPPageState extends State<ValidateOTPPage> {
                                     style: TextStyle(
                                       color: Colors.black,
                                         fontWeight: FontWeight.bold,
-                                        fontSize: size.height * 0.021
+                                        fontSize: size.height * 0.021,
+                                        fontFamily: 'Kanit'
                                       )
                                     ),
                                   ]
